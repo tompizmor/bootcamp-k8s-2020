@@ -1,0 +1,9 @@
+apiVersion: v1​
+kind: Pod
+metadata:
+  name: mongo
+  namespace: myns
+spec:
+  containers:
+    - image: bitnami/mongodb
+      name: mongo
