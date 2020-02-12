@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: dokuwiki
+  annotations:
+    nginx.ingress.kubernetes.io/affinity: cookie
+spec:
+  rules:
+    - host: dokuwiki.bootcamp.com
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: dokuwiki
+              servicePort: 80

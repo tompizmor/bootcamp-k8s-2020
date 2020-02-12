@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: shared-volume
+spec:
+  containers:
+    - name: busy
+      image: busybox
+      command: ["sleep", "infinity"]
+      volumeMounts:
+        - mountPath: /busy
+          name: test
+    - name: box
+      image: busybox
+      command: ["sleep", "infinity"]
+      volumeMounts:
+        - mountPath: /box
+          name: test
+  volumes:
+    - name: test
+      emptyDir: {}
